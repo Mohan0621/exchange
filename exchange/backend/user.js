@@ -1,13 +1,13 @@
 import {Skill} from './skill.js';
 
-export function User(id,name,rating,skills,skillswanted,){
+function User(id,name,rating,skills,skillswanted,){
     this.id = id;
     this.name = name;
     this.rating = rating;
     this.skills = skills;
     this.skillswanted = skillswanted;
 }
-export class UserRepository{
+class UserRepository{
     addUser(User){
         throw new Error("Not implemented")
     }
@@ -18,7 +18,7 @@ export class UserRepository{
         throw new Error("Not implemented");
     }
 }
-export class InMemoryUserRepository extends UserRepository{
+class InMemoryUserRepository extends UserRepository{
     constructor(){
         super();
         this.users = [];
@@ -33,7 +33,7 @@ export class InMemoryUserRepository extends UserRepository{
         return this.users;
     }
 }
-export class UserService{
+class UserService{
     constructor(userRepository){
         this.UserRepository=userRepository;
     }
@@ -48,3 +48,4 @@ export class UserService{
         return this.UserRepository.getAllUsers();
     }
 }
+export {User,InMemoryUserRepository,UserService};
