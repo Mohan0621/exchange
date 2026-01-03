@@ -1,15 +1,4 @@
-function Skill(id,name){
-    this.id=id;
-    this.name=name;
-}
-
-class SkillMatchStrategy{
-    findMatches(user, users)
-    {
-        throw new Error("Not implemented");
-    }
-}
-class GreedySkillMatchStrategy extends SkillMatchStrategy{
+export default class GreedySkillMatchStrategy extends SkillMatchStrategy{
     findMatches(user, users){
         const matches=[];
         const userSkills=new Set(user.skills.map(skills=>skills.id));
@@ -28,4 +17,3 @@ class GreedySkillMatchStrategy extends SkillMatchStrategy{
         return matches;
     }
 }
-export {Skill,SkillMatchStrategy,GreedySkillMatchStrategy};
